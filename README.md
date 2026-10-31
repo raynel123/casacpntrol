@@ -70,4 +70,4 @@ El bloqueo real de IPv4 está condicionado al orden del firewall y a que tu rout
 - [Reglas firewall de MikroTik](https://manual.mikrotik.com/docs/firewall-and-quality-of-service/firewall/filter/)
 - [Crear una web app en iPhone con Safari](https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios)
 
-**Nota:** `MODE=mikrotik` es una implementación preparada para RouterOS, pero no se ha probado contra tu modelo de router. No afirmamos compatibilidad con TP-Link, ZTE, Huawei, Claro o Altice sin conocer el modelo y su API.
+**Nota:** `MODE=mikrotik` es una implementación preparada para RouterOS, pero no se ha probado contra tu modelo de router. No afirmamos compatibilidad con TP-Link, ZTE, Huawei, Claro o Altice sin conocer el modelo y su API.CasaControl actualizado
