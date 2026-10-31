@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Tu consola privada para ver y administrar los dispositivos de tu red doméstica.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>CasaControl | Mi red</title>
+</head>
+<body>
+<div class="glow glow-a"></div><div class="glow glow-b"></div>
+<main class="app-shell">
+  <header class="topbar">
+    <div class="brand"><div class="brand-symbol">⌁</div><div><strong>CasaControl<span class="point">.</span></strong><small>NETWORK CONSOLE</small></div></div>
+    <div class="top-right"><span class="top-live"><i></i><span id="connection-word">ENTORNO PRIVADO</span></span><button class="icon-button" id="logout" hidden title="Cerrar sesión" aria-label="Cerrar sesión">⎋</button></div>
+  </header>
+  <section id="loginView" class="login-card">
+    <div class="login-symbol">⌁</div><div class="eyebrow">ACCESO AUTORIZADO</div>
+    <h1>Controla tu<br><em>red doméstica.</em></h1>
+    <p>Consulta tus dispositivos y bloquea su acceso a internet desde un panel privado.</p>
+    <form id="loginForm"><label for="password">CONTRASEÑA DEL PANEL</label><div class="password-wrap"><input id="password" type="password" required placeholder="Introduce la contraseña" autocomplete="current-password"><button id="eye" class="eye" type="button" aria-label="Mostrar contraseña">◉</button></div><button class="primary" type="submit">Entrar a mi consola <span>→</span></button></form>
+    <div class="fineprint">La clave del panel es diferente de la contraseña del Wi-Fi. Solo redes propias o administradas con permiso.</div>
+  </section>
+  <section id="dashboard" hidden>
+    <div class="welcome"><div><div class="eyebrow">PANEL DE ADMINISTRACIÓN <span id="modeLabel" class="mode-badge"></span></div><h1>Tu red, bajo<br><em>tu control.</em></h1><p id="subheading">Gestiona los dispositivos de tu hogar desde un solo lugar.</p></div><div class="radar"><div class="radar-ring ring-one"></div><div class="radar-ring ring-two"></div><div class="radar-ring ring-three"></div><div class="radar-dot d1"></div><div class="radar-dot d2"></div><div class="radar-core">⌁</div></div></div>
+    <div class="disclaimer" id="demoBanner" hidden><span>◈</span><p><b>Modo de demostración.</b> Los dispositivos son de ejemplo. Bloquear aquí no modifica tu Wi-Fi real.</p></div>
+    <section class="stats"><div class="stat"><div class="stat-icon violet">▦</div><span>DISPOSITIVOS DETECTADOS</span><strong id="countTotal">—</strong></div><div class="stat"><div class="stat-icon cyan">◉</div><span>WI-FI CONFIRMADO</span><strong id="countOnline">—</strong></div><div class="stat"><div class="stat-icon red">⊘</div><span>CON INTERNET BLOQUEADO</span><strong id="countBlocked">—</strong></div></section>
+    <section class="device-panel"><div class="panel-head"><div><div class="eyebrow">DISPOSITIVOS DE LA RED</div><h2>Conexiones <span id="rowCount"></span></h2></div><button id="refresh" class="refresh">↻ &nbsp; Actualizar</button></div><div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="search" placeholder="Buscar nombre, IP o MAC…" aria-label="Buscar dispositivos"></div><div class="filters"><button data-filter="all" class="active">Todos</button><button data-filter="online">Wi-Fi activo</button><button data-filter="blocked">Bloqueados</button></div></div><div id="deviceList" class="device-list"></div><div id="empty" class="empty" hidden>No hay dispositivos que coincidan.</div></section>
+    <div class="guide"><div class="guide-icon">ⓘ</div><div><strong>Información importante</strong><p>En MikroTik, el botón filtra el tráfico IPv4 hacia internet; no expulsa físicamente del Wi-Fi y no bloquea IPv6. Los datos DHCP no prueban una conexión activa. Algunas conexiones existentes pueden tardar en detenerse.</p></div></div>
+    <footer><div><b>CASACONTROL</b> · consola local para tu red</div><span id="lastUpdated">—</span></footer>
+  </section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="modal" class="modal-bg" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div id="modalIcon" class="modal-icon">⊘</div><h2 id="modalTitle">Confirmar bloqueo</h2><p id="modalDescription"></p><label id="confirmLabel" for="confirmation">ESCRIBE <b id="confirmText">BLOQUEAR</b> PARA CONFIRMAR</label><input id="confirmation" autocomplete="off" spellcheck="false"><div class="modal-actions"><button id="cancel" class="secondary">Cancelar</button><button id="confirm" class="danger" disabled>Confirmar</button></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
